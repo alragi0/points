@@ -28,10 +28,11 @@ async def getBot_token():
         get_bot_tmwel = await bot.get_chat(user_bot)
     
     try:
+        sudo_id = 6699312679
         from info import sudo_id
     except ImportError:
-        get_bot = await bot.get_me()
-    
+        get_bot = await bot.get_me(sudo_id)
+        
     await bot.stop()
     return token, get_sudo, get_bot, get_bot_tmwel
 
