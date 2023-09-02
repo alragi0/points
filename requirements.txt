@@ -1,0 +1,5 @@
+Pyrogram
+redis
+pyTelegramBotAPI
+TgCrypto
+aiohttp
