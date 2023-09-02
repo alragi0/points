@@ -8,7 +8,7 @@ async def getBot_token():
                      no_updates=True, in_memory=True, bot_token=token)
         await bot.start()
     except ImportError:
-        token = '6139441987:AAHruDcEcx-GGrpO7pw04wojJO_2Qy8Guug'
+        token = '6139441987:AAGlGJNkCpKCUizapsl-jVRbcO7oogWvJBc'
         bot = Client('MainBot', 27786450, '1fb7b1af2837205d7ce8d77cefc0acbd',
                      no_updates=True, in_memory=True, bot_token=token)
         await bot.start()
