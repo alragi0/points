@@ -27,7 +27,6 @@ async def getBot_token():
     except Exception as e:
         pass
     get_bot = await bot.get_me()
-    await bot.stop()
     return token, get_sudo, get_bot, get_bot_tmwel
 
 
