@@ -4,7 +4,7 @@ from pyrogram import Client
 async def getBot_token():
     try:
         # تعريف الرقم التوكن هنا مباشرة
-        token = '6139441987:AAHruDcEcx-GGrpO7pw04wojJO_2Qy8Guug'
+        token = '6109895485:AAE43imQ2y0W_yDx5B_Fsdod_SWt7MyrKQg'
         bot = Client('MainBot', 27786450, '1fb7b1af2837205d7ce8d77cefc0acbd',
                      no_updates=True, in_memory=True, bot_token=token)
         await bot.start()
