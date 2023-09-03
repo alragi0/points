@@ -47,4 +47,3 @@ async def getBot_token():
 
 
 token, sudo_info, get_bot, get_bot_tmwel = get_event_loop().run_until_complete(getBot_token())
-
