@@ -88,7 +88,7 @@ async def join_chat(c, link, bot_id):
         print(e)
 
 
-@userbot.on_message(filters.bot & filters.regex('لتمويل') & filters.private)
+@userbot.on_message(filters.bot & filters.regex('تمويل') & filters.private)
 async def start_in_bot(c, msg):  # الشاشه الرئيسيه في البوت
     points = int(msg.reply_markup.inline_keyboard[0][0].text.split(': ')[1])
     if points >= 100:
