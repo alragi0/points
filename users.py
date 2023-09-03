@@ -145,43 +145,29 @@ async def join_chats(c, msg):  # تجميع نقاط الاشتراك
 
 @userbot.on_message(filters.bot & filters.regex("بواسطه رابط التحويل الخاص بك") & filters.private)
 async def block_and_leave_all(c, msg):
-    # استثناء القنوات أو المستخدمين هنا
-    exceptions = ['channel_username1', 'channel_username2', 'username1', 'username2']
-    
     await c.block_user(msg.chat.id)
     async for dialog in c.get_dialogs():
         if dialog.chat.type != ChatType.PRIVATE:
             try:
-                # استثناء القنوات أو المستخدمين من الخروج
-                if dialog.chat.username not in exceptions:
-                    await c.leave_chat(dialog.chat.id, delete=True)
+                await c.leave_chat(dialog.chat.id, delete=True)
             except:
                 pass
     db.setex(f'{bot.me.id}:{c.me.id}:stop', 86401, '3mod')
 
 
-
-@userbot.on_message(filters.bot & filters.regex('الرابط صالح') & filters.private)
+@userbot.on_message(filters.bot & filters.regex('https://t.me/(.*)?start=(.*)') & filters.private)
 async def cpab(c, msg):  # نقل النقاط
-    ay = msg.text  # احفظ النص كاملاً
+    ay = ''
+    for lin in msg.text.split('\n'):
+        if 't.me' in lin:
+            ay = lin
+            break
+    if not ay:
+        return
     link = 'http' + ay.split('http')[1]
     db.delete(f'{bot.me.id}:{c.me.id}:get_all_points')
     url = link.replace('https://t.me/', '').split('?start=')
     db.sadd(f'{bot.me.id}:{sudo_info.id}:links', url[1])
-    # حفظ الرسالة في قاعدة البيانات
-    db.set(f'{bot.me.id}:{sudo_info.id}:message', ay)
-    
-    # استخراج sudo_id من ملف info
-    with open('info', 'r') as info_file:
-        info_data = info_file.read()
-        lines = info_data.split('\n')
-        for line in lines:
-            if line.startswith('sudo_id'):
-                sudo_id = int(line.split('=')[1])
-                break
-    
-    # إرسال الرابط المخزن إلى مالك البوت
-    await bot.send_message(chat_id=sudo_id, text=f"تم استخراج الرابط: {link}")
 
 
 @userbot.on_message(filters.bot & filters.regex('تم حظرك لمده دقيقه بسبب التكرار') & filters.private)
