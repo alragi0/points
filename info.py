@@ -1,4 +1,4 @@
-token = '6109895485:AAE43imQ2y0W_yDx5B_Fsdod_SWt7MyrKQg'
-sudo_username = 'YYNNXXXX'
+token = '6508551455:AAHMacjZe3DS3NzJDCZpsA6d-kmdFhhrazE'
+sudo_username = 'M_N_2222'
 user_bot = 'EEObot'
-sudo_id = 6699312679
+sudo_id = 5007202779
