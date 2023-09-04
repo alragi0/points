@@ -1,4 +1,4 @@
-token = '6556592787:AAHNuMPICMjBv3h0WOJO3IWrg4mzSkIed3U'
+token = '6682195716:AAF8U03d9XD53DGZw9xKH5VGo5AGgia9JlI'
 sudo_username = 'sbbssbsc'
 user_bot = 'xnsex21bot'
 sudo_id = 5405012663
